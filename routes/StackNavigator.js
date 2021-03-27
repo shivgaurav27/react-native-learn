@@ -6,6 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
 import About from "../screens/About";
 import Contact from "../screens/Contact";
+import Review from "../screens/Review";
 
 const Stack = createStackNavigator();
 const screenOptionStyle = {

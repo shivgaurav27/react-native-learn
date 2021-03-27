@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 //s
 
-import BottomTabNavigator from "./routes/TabNavigator";
+import DrawerNavigator from "./routes/DrawerNavigator";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <BottomTabNavigator />
+      <DrawerNavigator />
     </NavigationContainer>
   );
 }
