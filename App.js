@@ -4,7 +4,9 @@ import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 
 //s
-import Navigator from "./routes/HomeStack";
+
+import BottomTabNavigator from "./routes/TabNavigator";
+
 export default function App() {
   let [fontsLoaded] = useFonts({
     "Nunito-Bold": require("./assets/fonts/Nunito-Bold.ttf"),
@@ -17,7 +19,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Navigator />
+      <BottomTabNavigator />
     </NavigationContainer>
   );
 }
