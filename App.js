@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
+import { NavigationContainer } from "@react-navigation/native";
 
-//
-import Home from "./screens/Home";
-
+//s
+import Navigator from "./routes/HomeStack";
 export default function App() {
   let [fontsLoaded] = useFonts({
     "Nunito-Bold": require("./assets/fonts/Nunito-Bold.ttf"),
@@ -15,5 +15,9 @@ export default function App() {
     return <AppLoading />;
   }
 
-  return <Home />;
+  return (
+    <NavigationContainer>
+      <Navigator />
+    </NavigationContainer>
+  );
 }
