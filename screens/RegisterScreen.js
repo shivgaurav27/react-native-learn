@@ -53,6 +53,7 @@ const RegisterScreen = ({ navigation }) => {
           autoFocus
           type="password"
           value={password}
+          secureTextEntry
           onChangeText={(text) => setPassword(text)}
         />
         <Input
@@ -60,6 +61,7 @@ const RegisterScreen = ({ navigation }) => {
           autoFocus
           type="confirmPassword"
           value={confirmPassword}
+          secureTextEntry
           onChangeText={(text) => setConfirmPassword(text)}
         />
       </View>

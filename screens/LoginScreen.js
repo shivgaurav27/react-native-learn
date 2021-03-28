@@ -23,11 +23,7 @@ const LoginScreen = ({ navigation }) => {
 
 
   const signIn = () => {
-    if (email == "shiv7727@gmail.com" && password == 123) {
-      console.log("email", email);
-      console.log("password", password);
-      navigation.replace("Home");
-    }
+    auth.signInWithEmailAndPassword(email,password).then().catch(error=>alert(error.message))
   };
 
   return (
