@@ -5,14 +5,14 @@ import { StyleSheet, Text, View } from "react-native";
 import { Button, Image, Input } from "react-native-elements";
 import { KeyboardAvoidingView } from "react-native";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const signIn = () => {};
 
   return (
-    <KeyboardAvoidingView style={styles.container}>
+    <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <StatusBar style="light" />
       <Image
         source={{
@@ -39,7 +39,12 @@ const LoginScreen = () => {
         />
       </View>
       <Button containerStyle={styles.button} title="Login" onPress={signIn} />
-      <Button containerStyle={styles.button} type="outline" title="Register" />
+      <Button
+        containerStyle={styles.button}
+        type="outline"
+        title="Register"
+        onPress={() => navigation.navigate("Register")}
+      />
     </KeyboardAvoidingView>
   );
 };
