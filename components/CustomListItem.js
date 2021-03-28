@@ -6,7 +6,9 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  View,
 } from "react-native";
+import { Button, Image, Input } from "react-native-elements";
 
 const DATA = [
   {
@@ -25,7 +27,15 @@ const DATA = [
 
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
-    <Text style={[styles.title, textColor]}>{item.title}</Text>
+    <Image
+      source={{
+        uri: item.url,
+      }}
+      style={{ width: 100, height: 100, borderRadius: 10, marginBottom: 20 }}
+    />
+    <View style={styles.titleContainer}>
+      <Text style={[styles.title, textColor]}>{item.title}</Text>
+    </View>
   </TouchableOpacity>
 );
 
@@ -70,8 +80,13 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
+    display: "flex",
+    flexDirection: "row",
   },
   title: {
     fontSize: 32,
+  },
+  titleContainer: {
+    marginLeft: 20,
   },
 });
