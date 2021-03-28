@@ -1,6 +1,8 @@
 import React, { useLayoutEffect } from "react";
+import { TouchableOpacity } from "react-native";
 import { StyleSheet, Text, View } from "react-native";
 import CustomListItem from "../components/CustomListItem";
+import { AntDesign, SimpleLineIcons } from "@expo/vector-icons";
 
 const DATA = [
   {
@@ -62,9 +64,24 @@ const DATA = [
 ];
 
 const HomeScreen = ({ navigation }) => {
+  console.log(navigation);
   useLayoutEffect(() => {
     navigation.setOptions({
       title: "Fresh Fruits",
+      headerRight: () => (
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "flex-end",
+            width: 80,
+            marginRight: 10,
+          }}
+        >
+          <TouchableOpacity activeOpacity={0.5}>
+            <AntDesign name="search1" size={24} color="white" />
+          </TouchableOpacity>
+        </View>
+      ),
     });
   }, [navigation]);
   return <CustomListItem DATA={DATA} />;
