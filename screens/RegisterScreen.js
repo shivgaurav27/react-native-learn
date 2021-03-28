@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { KeyboardAvoidingView } from "react-native";
 import { StyleSheet, View } from "react-native";
@@ -9,12 +9,6 @@ const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerBackTitle: "ABC",
-    });
-  }, [navigation]);
 
   const register = () => {};
 
