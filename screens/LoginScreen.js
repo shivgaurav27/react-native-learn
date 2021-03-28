@@ -9,7 +9,13 @@ const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signIn = () => {};
+  const signIn = () => {
+    if (email == "shiv7727@gmail.com" && password == 123) {
+      console.log("email", email);
+      console.log("password", password);
+      navigation.replace("Home");
+    }
+  };
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
