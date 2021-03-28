@@ -7,6 +7,8 @@ import Home from "../screens/Home";
 import About from "../screens/About";
 import Contact from "../screens/Contact";
 import Review from "../screens/Review";
+import Categories from "../screens/Categories";
+import MyList from "../screens/MyList";
 
 const Stack = createStackNavigator();
 const screenOptionStyle = {
@@ -22,6 +24,8 @@ const MainStackNavigator = () => {
     <Stack.Navigator screenOptions={screenOptionStyle}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="About" component={About} />
+      <Stack.Screen name="Categories" component={Categories} />
+      <Stack.Screen name="MyList" component={MyList} />
     </Stack.Navigator>
   );
 };
