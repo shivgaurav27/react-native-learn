@@ -1,20 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { Button, Image, Input } from "react-native-elements";
 import { KeyboardAvoidingView } from "react-native";
+import {auth  } from '../firebase'
+
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+  useEffect(()=>{
+  const unSubscribe =   auth.onAuthStateChanged(authUser=>{
+      if(authUser){
+        navigation.replace("Home");
+      }
+    })
+    return unSubscribe;
+  },[])
+
+
   const signIn = () => {
-    if (email == "shiv7727@gmail.com" && password == 123) {
-      console.log("email", email);
-      console.log("password", password);
-      navigation.replace("Home");
-    }
+    auth.signInWithEmailAndPassword(email,password).then().catch(error=>alert(error.message))
   };
 
   return (

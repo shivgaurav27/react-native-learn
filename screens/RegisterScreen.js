@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { KeyboardAvoidingView } from "react-native";
 import { StyleSheet, View } from "react-native";
 import { Button, Input, Text } from "react-native-elements";
+import {auth  } from '../firebase'
 
 const RegisterScreen = ({ navigation }) => {
   const [name, setName] = useState("");
@@ -10,7 +11,21 @@ const RegisterScreen = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const register = () => {};
+  const register = () => {
+    if(password!==confirmPassword){
+      return alert("Password mistmatch")
+    }
+    if(password.length<6){
+      return alert("password must be greater than 6 ")
+    }
+    if(password===confirmPassword  && password.length>=6){
+      auth.createUserWithEmailAndPassword(email,password).then(authUser=>{
+        authUser.user.updateProfile({
+          displayName:name,
+        })
+      }).catch(error=>alert(error.message))
+    }
+    }
 
   return (
     <KeyboardAvoidingView style={styles.container}>
@@ -38,6 +53,7 @@ const RegisterScreen = ({ navigation }) => {
           autoFocus
           type="password"
           value={password}
+          secureTextEntry
           onChangeText={(text) => setPassword(text)}
         />
         <Input
@@ -45,6 +61,7 @@ const RegisterScreen = ({ navigation }) => {
           autoFocus
           type="confirmPassword"
           value={confirmPassword}
+          secureTextEntry
           onChangeText={(text) => setConfirmPassword(text)}
         />
       </View>
